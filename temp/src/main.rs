@@ -38,7 +38,7 @@ fn get_temperature(temperature_scale: &String) -> i32 {
         io::stdin().read_line(&mut temperature)
             .expect("Failed to read line");
 
-        let temperature: i32 = match temperature.trim().parse() {
+        let _temperature: i32 = match temperature.trim().parse() {
             Ok(num) => {
                 return num;
             },
