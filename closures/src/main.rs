@@ -71,9 +71,10 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use rand::Rng;
 
     #[test]
-    fn call_with_different_values() {
+    fn call_cacher_value_with_different_values() {
         let mut c = Cacher::new(|a| a);
 
         let v1 = c.value(1);
@@ -81,5 +82,18 @@ mod tests {
 
         assert_eq!(v1, 1);
         assert_eq!(v2, 2);
+    }
+
+    #[test]
+    fn call_cacher_value_with_the_same_value() {
+
+        let mut c = Cacher::new(|_a| {
+            let mut rng = rand::thread_rng();
+            rng.gen()
+        });
+
+        let v1 = c.value(1);
+        let v1again = c.value(1);
+        assert_eq!(v1, v1again);
     }
 }

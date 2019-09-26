@@ -5,3 +5,6 @@ authors = ["nativestranger <eric.ed.arnold@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+
+[dev-dependencies]
+rand = "0.3.14"
