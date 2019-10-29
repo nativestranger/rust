@@ -33,7 +33,6 @@ fn filters_by_size() {
     );
 }
 
-
 // creating your own iterator
 
 struct Counter {
